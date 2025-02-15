@@ -62,7 +62,7 @@ export async function fetchCardData() {
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
          FROM invoices`;
 
-    const data = await Promise.all([
+    const data = await Promise.all([ //to make request in parallel. by this we can make multiple request at the same time
       invoiceCountPromise,
       customerCountPromise,
       invoiceStatusPromise,
