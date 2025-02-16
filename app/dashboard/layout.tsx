@@ -1,5 +1,7 @@
 import SideNav from "../ui/dashboard/sidenav";
 
+export const experimental_ppr = true; // Enable PPR for all routes
+
 export default function Layout ({ children}: { children: React.ReactNode }) { //children can be another page or component or another layout
     return (
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
