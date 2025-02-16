@@ -11,8 +11,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   const handleSearch = useDebouncedCallback((term) => {
   console.log(`Searching... ${term}`);
- 
   const params = new URLSearchParams(searchParams);
+  params.set('page', '1');
   if (term) {
     params.set('query', term);
   } else {
@@ -21,17 +21,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
   replace(`${pathname}?${params.toString()}`);
 }, 300);
   
-
-  // function handleSearch(term: string) {
-  //   console.log(`Searching... ${term}`)
-  //   const params = new URLSearchParams(searchParams); //manipulate the URL query parameters
-  //   if (term) { 
-  //     params.set('query',term); // Set the query parameter to the search term
-  //   } else {
-  //     params.delete('query'); // Remove the query parameter if the search term is empty
-  //   }
-  //   replace( `${pathname}?${params.toString()}`); // Update the URL with the new query parameters
-  // }, 300);
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
